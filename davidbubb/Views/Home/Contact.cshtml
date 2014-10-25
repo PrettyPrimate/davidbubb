@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>David Bubb</h1>
+        <p>If you wish to contact me for any purpose whatsoever, please use the contact form below, email address or find me on social media</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Email</h2>
+            <p class="emailinkblack"><a href="mailto:info@davidbubb.co.uk">info@davidbubb.co.uk</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Message</h2>
+            
+            
+            <form role="form">
+                @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post, new { @role = "form", @class = "form-horizontal" }))              
+                {
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Message</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Message">
+                    </div>
+             
+                    <button type="submit" class="btn btn-default">Send</button>
+                }
+            </form>
+
+        </div>
+        <div class="col-md-4">
+            <h2>Social</h2>
+            <a href="http://www.twitter.com/pretty_primate" target="_blank" style="border:none; text-decoration:none">
+                <img src="~/Content/Images/twitter.png" width="75" />
+            </a>
+            <a href="http://www.facebook.com/david.bubb.92" target="_blank" style="border:none; text-decoration:none">
+
+                <img src="~/Content/Images/facebook.png" width="75" />
+            </a>
+            <div class="spacer"></div>
+            <a href="https://www.linkedin.com/pub/david-bubb/58/a78/845" target="_blank" style="border:none; text-decoration:none">
+
+                <img src="~/Content/Images/linkedin.png" width="75" />
+            </a>
+            <a href="https://www.flickr.com/photos/prettyprimate/" target="_blank" style="border:none; text-decoration:none">
+
+                <img src="~/Content/Images/flickr.png" width="75" />
+            </a>
+        </div>
+    </div>
+</div>
