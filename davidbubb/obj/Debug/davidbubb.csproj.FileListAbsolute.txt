@@ -24,3 +24,29 @@ c:\users\ange\documents\visual studio 2013\Projects\davidbubb\davidbubb\bin\Newt
 c:\users\ange\documents\visual studio 2013\Projects\davidbubb\davidbubb\obj\Debug\davidbubb.csprojResolveAssemblyReference.cache
 c:\users\ange\documents\visual studio 2013\Projects\davidbubb\davidbubb\obj\Debug\davidbubb.dll
 c:\users\ange\documents\visual studio 2013\Projects\davidbubb\davidbubb\obj\Debug\davidbubb.pdb
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\obj\Debug\davidbubb.csprojResolveAssemblyReference.cache
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\obj\Debug\davidbubb.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\davidbubb.dll.config
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\davidbubb.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\davidbubb.pdb
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\Antlr3.Runtime.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\Newtonsoft.Json.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.Helpers.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.Mvc.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.Optimization.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.Razor.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.WebPages.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\WebGrease.dll
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.Helpers.xml
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.Mvc.xml
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.Optimization.xml
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.Razor.xml
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.WebPages.xml
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\Antlr3.Runtime.pdb
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\bin\Newtonsoft.Json.xml
+C:\Users\Ange\Documents\GitHub\davidbubb\davidbubb\obj\Debug\davidbubb.pdb
