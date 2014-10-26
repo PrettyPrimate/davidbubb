@@ -3,6 +3,24 @@
    
 }
 
+<div ng-app="lastfm-app" class="container" ng-controller="RecentTracksController">
+    <ul class="thumbnails">
+        <li class="span4" ng-repeat="song in songs">
+            <a class="thumbnail" href="{{song.url}}" title="{{song.artist['#text']}} - {{song.name}}" style="display: block;">
+                <div class="media">
+                    <div class="pull-left" href="#">
+                        <img class="media-object" src="{{song.image[2]['#text']}}">
+                    </div>
+                    <div class="media-body">
+                        <strong>{{song.artist['#text']}}</strong><br />
+                        {{song.name}}<br />
+                        <em>{{song.date['#text']}}</em>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
 
 <div class="row">
 
@@ -19,21 +37,28 @@
 @section scripts
 {
     <script type="text/javascript">
-        $(document).ready(function () {
 
-            $.getJSON("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=davey_star&api_key=0d5a9ad325a6b6fe0767428b76b9073f&limit=5&format=json&callback=?", function (data) {
+        var LastFmApp = angular.module('lastfm-app', []);
 
-                var html = ''; // we declare the variable that we'll be using to store our information
-                var counter = 1; // we declare a counter variable to use with the if statement in order to limit the result to 1
-                $.each(data.recenttracks.track, function (i, item) {
-                    if (counter == 1) {
-                        html += 'Currently listening to: <span><a href="' + item.url + '" target="_blank">' + item.name + '</a> - ' + item.artist['#text'] + '</span>';
-                    } // close the if statement
-                    counter++ // add 1 to the counter variable each time the each loop runs
-                }); // close each loop
-                $('.listening-to h5').append(html); // print the information to the document - here I look for the h5 tag inside the div with a class of 'listening-to' and use the jQuery append method to insert the information we've stored in the html variable inside the h5 tag.
-            }); // close JSON call
+        LastFmApp.controller('RecentTracksController',
+            function RecentTracksController($scope, $http) {
+                var url = 'http://ws.audioscrobbler.com/2.0/';
+                var params = {
+                    method: 'user.getrecenttracks',
+                    api_key: '0d5a9ad325a6b6fe0767428b76b9073f',
+                    limit: 12,
+                    user: 'davey_star',
+                    format: 'json'
+                };
+                $http.get(url, { params: params })
+                    .success(function (data) {
+                        $scope.songs = data.recenttracks.track;
+                    })
+                    .error(function (data, status) {
+                        console.log(data || "Request failed");
+                        console.log(status);
+                    });
+            });
 
-        });
     </script>
 }
