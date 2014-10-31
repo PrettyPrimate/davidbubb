@@ -1,64 +1,129 @@
-﻿@using System.Web.Script.Services
-@{
+﻿@{
    
 }
+<div ng-app="lastfm-app">
 
-<div ng-app="lastfm-app" class="container" ng-controller="RecentTracksController">
-    <ul class="thumbnails">
-        <li class="span4" ng-repeat="song in songs">
-            <a class="thumbnail" href="{{song.url}}" title="{{song.artist['#text']}} - {{song.name}}" style="display: block;">
-                <div class="media">
-                    <div class="pull-left" href="#">
-                        <img class="media-object" src="{{song.image[2]['#text']}}">
-                    </div>
-                    <div class="media-body">
-                        <strong>{{song.artist['#text']}}</strong><br />
-                        {{song.name}}<br />
-                        <em>{{song.date['#text']}}</em>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Events
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Recent Tracks
+                        </div>
+                        <div class="panel-body">
+                            <div class="container" ng-controller="RecentTracksController">
+                                <ul class="thumbnails">
+                                    <li class="span4" ng-repeat="song in songs">
+                                        <a class="thumbnail" href="{{song.url}}" title="{{song.artist['#text']}} - {{song.name}}" style="display: block;">
+                                            <div class="media">
+                                                <div class="pull-left" href="#">
+                                                    <img class="media-object" src="{{song.image[2]['#text']}}">
+                                                </div>
+                                                <div class="media-body">
+                                                    <strong>{{song.artist['#text']}}</strong><br />
+                                                    {{song.name}}<br />
+                                                    <em>{{song.date['#text']}}</em>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </a>
-        </li>
-    </ul>
-</div>
+             
 
-<div class="row">
-
-    <div class="columns twelve clearfix listening-to">
-
-        <i class="general-enclosed foundicon-heart"></i>
-        <h5></h5>
-
-
-    </div>
-
-</div>
-
-@section scripts
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Top Artists
+                        </div>
+                        <div class="panel-body">
+                            <div class="container" ng-controller="TopArtistsController">
+                                <ul class="thumbnails">
+                                    <li class="span4" ng-repeat="artist in artists">
+                                        <a class="thumbnail" href="{{artist.url}}" title="{{artist.name['#text']}}" style="display: block;">
+                                            <div class="media">
+                                                <div class="pull-left" href="#">
+                                                    <img class="media-object" src="{{artist.image[2]['#text']}}">
+                                                </div>
+                                                <div class="media-body">
+                                                    <strong>{{artist.name}}</strong>
+                                                    <br />
+                                                    {{artist.playcount}} plays
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @section scripts
 {
-    <script type="text/javascript">
+            <script type="text/javascript">
 
-        var LastFmApp = angular.module('lastfm-app', []);
+                var LastFmApp = angular.module('lastfm-app', []);
 
-        LastFmApp.controller('RecentTracksController',
-            function RecentTracksController($scope, $http) {
-                var url = 'http://ws.audioscrobbler.com/2.0/';
-                var params = {
-                    method: 'user.getrecenttracks',
-                    api_key: '0d5a9ad325a6b6fe0767428b76b9073f',
-                    limit: 12,
-                    user: 'davey_star',
-                    format: 'json'
-                };
-                $http.get(url, { params: params })
-                    .success(function (data) {
-                        $scope.songs = data.recenttracks.track;
-                    })
-                    .error(function (data, status) {
-                        console.log(data || "Request failed");
-                        console.log(status);
+                LastFmApp.controller('RecentTracksController',
+                    function RecentTracksController($scope, $http) {
+                        var url = 'http://ws.audioscrobbler.com/2.0/';
+                        var params = {
+                            method: 'user.getrecenttracks',
+                            api_key: '0d5a9ad325a6b6fe0767428b76b9073f',
+                            limit: 10,
+                            user: 'davey_star',
+                            format: 'json'
+                        };
+                        $http.get(url, { params: params })
+                            .success(function (data) {
+                                $scope.songs = data.recenttracks.track;
+                            })
+                            .error(function (data, status) {
+                                console.log(data || "Request failed");
+                                console.log(status);
+                            });
+
+
                     });
-            });
 
-    </script>
-}
+
+                LastFmApp.controller('TopArtistsController',
+                 function TopArtistsController($scope, $http) {
+                     var url = 'http://ws.audioscrobbler.com/2.0/';
+                     var params = {
+                         method: 'user.getTopArtists',
+                         api_key: '0d5a9ad325a6b6fe0767428b76b9073f',
+                         limit: 10,
+                         user: 'davey_star',
+                         format: 'json'
+                     };
+                     $http.get(url, { params: params })
+                         .success(function (data) {
+                             $scope.artists = data.topartists.artist;
+                         })
+                         .error(function (data, status) {
+                             console.log(data || "Request failed");
+                             console.log(status);
+                         });
+
+
+                 });
+            </script>
+        }
