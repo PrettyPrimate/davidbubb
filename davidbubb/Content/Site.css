@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: black;
+    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -44,4 +46,11 @@ a:hover
 .emailinkblack a
 {
     color:Black;
+}
+
+.navbar-inverse {
+    background-color: #6b0000;
+}
+.navbar-inverse .navbar-brand {
+    color: white;
 }
