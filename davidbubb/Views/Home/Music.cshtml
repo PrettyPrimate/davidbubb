@@ -10,7 +10,15 @@
                     Events
                 </div>
                 <div class="panel-body">
-                </div>
+                    <div class="container" ng-controller="EventsController">
+                        <span ng-repeat="event in events">
+                            {{event.title}},
+                        </span>
+
+                    </div>
+
+
+                    </div>
             </div>
 
                 </div>
@@ -24,8 +32,8 @@
                         </div>
                         <div class="panel-body">
                             <div class="container" ng-controller="RecentTracksController">
-                                <ul class="thumbnails">
-                                    <li class="span4" ng-repeat="song in songs">
+                                <ul>
+                                    <li ng-repeat="song in songs">
                                         <a class="thumbnail" href="{{song.url}}" title="{{song.artist['#text']}} - {{song.name}}" style="display: block;">
                                             <div class="media">
                                                 <div class="pull-left" href="#">
@@ -34,7 +42,7 @@
                                                 <div class="media-body">
                                                     <strong>{{song.artist['#text']}}</strong><br />
                                                     {{song.name}}<br />
-                                                    <em>{{song.date['#text']}}</em>
+                                                    {{song.date['#text']}}
                                                 </div>
                                             </div>
                                         </a>
@@ -53,8 +61,8 @@
                         </div>
                         <div class="panel-body">
                             <div class="container" ng-controller="TopArtistsController">
-                                <ul class="thumbnails">
-                                    <li class="span4" ng-repeat="artist in artists">
+                                <ul>
+                                    <li ng-repeat="artist in artists">
                                         <a class="thumbnail" href="{{artist.url}}" title="{{artist.name['#text']}}" style="display: block;">
                                             <div class="media">
                                                 <div class="pull-left" href="#">
@@ -73,6 +81,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         @section scripts
@@ -125,5 +134,27 @@
 
 
                  });
+
+                LastFmApp.controller('EventsController',
+         function EventsController($scope, $http) {
+             var url = 'http://ws.audioscrobbler.com/2.0/';
+             var params = {
+                 method: 'user.getpastevents',
+                 api_key: '0d5a9ad325a6b6fe0767428b76b9073f',
+                 limit: 1000,
+                 user: 'davey_star',
+                 format: 'json'
+             };
+             $http.get(url, { params: params })
+                 .success(function (data) {
+                     $scope.events = data.events.event;
+                 })
+                 .error(function (data, status) {
+                     console.log(data || "Request failed");
+                     console.log(status);
+                 });
+
+
+         });
             </script>
         }

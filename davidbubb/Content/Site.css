@@ -2,7 +2,6 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: black;
-    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -53,4 +52,7 @@ a:hover
 }
 .navbar-inverse .navbar-brand {
     color: white;
+}
+.panel-heading {
+    background-color: #7b0000 !important;
 }
