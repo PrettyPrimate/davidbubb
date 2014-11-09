@@ -56,3 +56,12 @@ a:hover
 .panel-heading {
     background-color: #7b0000 !important;
 }
+.blackText {
+    color: black !important;
+}
+.blackText a {
+    color: black;
+}
+.whiteText {
+    color: white !important;
+}
